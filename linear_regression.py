@@ -20,7 +20,8 @@ loansData['FICO.Score'] = map(lambda x: int(tuple(x.split('-'))[0]), fico_range)
 
 loan_amount = loansData['Amount.Requested']
 loansData['Amount.Requested'] = map(lambda x: int(x), loan_amount)
-
+loansData.to_csv('loansData_clean.csv', header=True, index=False)
+print loansData
 intrate = loansData['Interest.Rate']
 loanamt = loansData['Amount.Requested']
 fico = loansData['FICO.Score']
@@ -35,5 +36,4 @@ X = sm.add_constant(x)
 model = sm.OLS(y, X)
 f = model.fit()
 
-print f.summary()
-
+# print f.summary()
