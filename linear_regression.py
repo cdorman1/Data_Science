@@ -37,4 +37,4 @@ X = sm.add_constant(x)
 model = sm.OLS(y, X)
 f = model.fit()
 
-# print f.summary()
+print f.summary()
