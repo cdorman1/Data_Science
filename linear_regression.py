@@ -32,6 +32,7 @@ y = np.matrix(intrate).transpose()
 # The independent variables shaped as columns
 x1 = np.matrix(fico).transpose()
 x2 = np.matrix(loanamt).transpose()
+
 x = np.column_stack([x1, x2])
 X = sm.add_constant(x)
 model = sm.OLS(y, X)
