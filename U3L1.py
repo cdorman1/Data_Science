@@ -10,9 +10,10 @@ import matplotlib.pyplot as plt
 con = lite.connect('citi_bike.db')
 cur = con.cursor()
 
-for i in range(1):
+for i in range(60):
     r = requests.get('http://www.citibikenyc.com/stations/json')
     exec_time = parse(r.json()['executionTime'])
+    print exec_time
 
 
     cur.execute('INSERT INTO available_bikes (execution_time) VALUES (?)', (exec_time.strftime('%c'),))
@@ -28,7 +29,7 @@ for i in range(1):
                 '%c') + "';")
     con.commit()
 
-#    time.sleep(60)
+    time.sleep(60)
 con.close()
 
 
@@ -42,7 +43,6 @@ hour_data = pd.read_sql_query("SELECT * FROM available_bikes WHERE execution_tim
 hour_data = hour_data.dropna()
 hour_change = collections.defaultdict(int)
 
-print hour_data
 for col in hour_data.columns:
     station_vals = hour_data[col].tolist()
     station_id = col[1:]  # trim the "_"\
