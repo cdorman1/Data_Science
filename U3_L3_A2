@@ -1,0 +1,45 @@
+from bs4 import BeautifulSoup
+import pandas as pd
+import requests
+import sqlite3 as lite
+
+
+url = "http://web.archive.org/web/20110514112442/http://unstats.un.org/unsd/demographic/products/socind/education.htm"
+
+r = requests.get(url)
+
+soup = BeautifulSoup(r.content)
+
+soup = soup('table')[6]
+
+# get column names from header information
+header = soup.find('tr', {'class': 'lheader'})
+col_names = []
+for col in header.find_all('td'):
+    if col.string is None:
+        continue
+    col_names.append(col.string)
+
+# get data from html table
+table_a = soup.find_all('tr', {'class': 'tcont'})
+
+table_b = [row for row in table_a if len(row) == 25]
+
+data = []
+for row in table_b:
+    col = row.find_all('td')
+    Country = col[0].string
+    Year = col[1].string
+    Total = col[4].string
+    Men = col[7].string
+    Women = col[10].string
+    data.append((Country, Year, Total, Men, Women))
+
+df = pd.DataFrame(data, columns=col_names)
+
+con = lite.connect('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/U3_L3_A2.db')
+cur = con.cursor()
+
+print df['Women'].mean()
+
+
