@@ -40,7 +40,7 @@ for col in df.columns:
     station_vals = df[col].tolist()
     station_id = col[1:] #trim the "_"
     station_change = 0
-    for k,v in enumerate(station_vals):
+    for k, v in enumerate(station_vals):
         if k < len(station_vals) - 1:
             station_change += abs(station_vals[k] - station_vals[k+1])
     hour_change[int(station_id)] = station_change #convert the station id back to integer
