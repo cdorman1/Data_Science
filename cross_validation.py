@@ -39,14 +39,11 @@ x2 = np.matrix(loanamt).transpose()
 
 x = np.column_stack([x1, x2])
 
-X = sm.add_constant(x)
-
-model = sm.OLS(y, X)
 
 
-kf = KFold(, n_folds=10)
+kf = KFold(len(x), n_folds=10)
 for train, test in kf:
     print('%s, %s' %(train, test))
-    mean_squared_error()
-    mean_absolute_error()
-    r2_score()
+    # mean_squared_error()
+    # mean_absolute_error()
+    # r2_score()
