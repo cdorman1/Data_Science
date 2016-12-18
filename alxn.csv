@@ -1,6 +1,3 @@
-# symbol : ALXN															
-# jumpid : 439611															
-# date   : 20161109															
 nsec	volume	sqrtvolume	bidprice	bidsize	askprice	asksize	emavol0	emavol1	emabid0	emabid1	emaask0	emaask1	emaspr0	emaspr1	cluster1
 21600	450	49.9494	1220000	70	1240000	600	49.9494	49.9494	1.22E+06	1.22E+06	1.24E+06	1.24E+06	20000	20000	114.942
 21610	450	49.9494	1220000	70	1240000	600	49.9494	49.9494	1.22E+06	1.22E+06	1.24E+06	1.24E+06	20000	20000	1.08E-44
