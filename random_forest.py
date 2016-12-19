@@ -11,13 +11,13 @@ import pandas as pd
 import randomforests as rf
 from sklearn.ensemble import RandomForestClassifier
 import sklearn.metrics as skm
-import pylab as pl
+import matplotlib.pylab as pl
 
-samtrain = pd.read_csv('/home/sroy/Desktop/Thinkful/UCI_HAR/samtrain.csv')
-samval = pd.read_csv('/home/sroy/Desktop/Thinkful/UCI_HAR/samval.csv')
-samtest = pd.read_csv('/home/sroy/Desktop/Thinkful/UCI_HAR/samtest.csv')
-samsungdata = pd.read_csv('/home/sroy/Desktop/Thinkful/UCI_HAR/samsungdata.csv')
-samsungmin = pd.read_csv('/home/sroy/Desktop/Thinkful/UCI_HAR/samsungmin.csv')
+samtrain = pd.read_csv('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/UCI_HAR/samtrain.csv')
+samval = pd.read_csv('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/UCI_HAR/samval.csv')
+samtest = pd.read_csv('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/UCI_HAR/samtest.csv')
+samsungdata = pd.read_csv('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/UCI_HAR/samsungdata.csv')
+samsungmin = pd.read_csv('/Users/chrisdorman/PycharmProjects/Thinkful/git/Data_Science/UCI_HAR/samsungmin.csv')
 
 
 # We use the Python RandomForest package from the scikits.learn collection of algorithms.
@@ -63,7 +63,7 @@ print("mean accuracy score for test set = %f" %(rfc.score(test_data, test_truth)
 
 # use the confusion matrix to see how observations were misclassified as other activities and visualize it
 test_cm = skm.confusion_matrix(test_truth,test_pred)
-
+print test_cm
 
 pl.matshow(test_cm)
 pl.title('Confusion matrix for test data')
