@@ -1,0 +1,33 @@
+Data_Science
+Questions for Roy
+Good projects to use multiple regression models on so I can get more comfortable using them.
+Coursework
+Use stock information for time series portion of 
+
+Capstone
+For capstone start with a description of fields that are in Ravenpack
+
+Ask Roy where the LoanStats3b file is and if I need to make an issue_d column.
+
+
+
+In what applications is classification used for data mining? http://www.tutorialspoint.com/data_mining/dm_classification_prediction.htm
+
+In what applications does classification seem to require more sophisticated statistical modeling? Can you hypothesize why?
+
+
+Create proof of concept
+use bloomberg metrics and causal model 
+look at the data to try and create a causal model
+
+NLTK library 
+
+Capstone:
+grab nov7-8 
+clean data remove ask price if needed
+find direction of bid price, time series of  bid 
+Plot data from bloomberg and ALXN csvs and find correlation. 
+find what was the avg, std deviation bid price for the last 10 minutes
+Features try to predict direction of bid and predict stock value over a 10 second time range
+Model regression, 
+get at least 7 days of price data 3-4 days before and after
